@@ -30,11 +30,11 @@ module.exports = {
       name: 'base_app',
       filename: 'remoteEntry.js',
       remotes: {
-        mfe_food: 'mfe_food@https://micr1.netlify.app/remoteEntry.js',
-        mfe_events: 'mfe_events@https://micr2.netlify.app/remoteEntry.js',
+        mfe_food: 'mfe_food@https://mic1.netlify.app/remoteEntry.js',
+        mfe_events: 'mfe_events@https://mic2.netlify.app/remoteEntry.js',
         mfe_cab: 'mfe_cab@https://mic3.netlify.app/remoteEntry.js',
-        mfe_hotel: 'mfe_hotel@https://micr4.netlify.app/remoteEntry.js',
-        mfe_cart: 'mfe_cart@https://micr5.netlify.app/remoteEntry.js'
+        mfe_hotel: 'mfe_hotel@https://mic4.netlify.app/remoteEntry.js',
+        mfe_cart: 'mfe_cart@https://mic5.netlify.app/remoteEntry.js'
       },
       exposes: {
         './CartSlice': './src/redux/cartSlice.js',
