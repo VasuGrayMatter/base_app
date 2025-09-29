@@ -32,7 +32,7 @@ module.exports = {
       remotes: {
         mfe_food: 'mfe_food@https://micr1.netlify.app/remoteEntry.js',
         mfe_events: 'mfe_events@https://micr2.netlify.app/remoteEntry.js',
-        mfe_cab: 'mfe_cab@https://micr3.netlify.app/remoteEntry.js',
+        mfe_cab: 'mfe_cab@https://mic3.netlify.app/remoteEntry.js',
         mfe_hotel: 'mfe_hotel@https://micr4.netlify.app/remoteEntry.js',
         mfe_cart: 'mfe_cart@https://micr5.netlify.app/remoteEntry.js'
       },
