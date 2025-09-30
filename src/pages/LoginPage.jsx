@@ -5,6 +5,11 @@ import { loadUserCart } from '../redux/cartSlice';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import './LoginPage.css';
 
+// Simple token generation (in real app, this would come from backend)
+const generateMockToken = (username) => {
+  return `mock_token_${username}_${Date.now()}`;
+};
+
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('user');
@@ -16,7 +21,7 @@ export default function LoginPage() {
     const urlUsername = searchParams.get('username');
     if (urlUsername) {
       setUsername(urlUsername);
-      handleLogin(urlUsername, 'user'); // auto-login via URL
+      handleLogin(urlUsername, 'user');
     }
   }, [searchParams]);
 
@@ -24,14 +29,21 @@ export default function LoginPage() {
     const trimmed = user.trim();
     if (!trimmed) return;
 
+    // Generate mock token (replace with actual API call in production)
+    const token = generateMockToken(trimmed);
+
     // Load cart for the logged-in user
     dispatch(loadUserCart({ username: trimmed }));
 
-    // Save user info to Redux
-    dispatch(loginUser({ username: trimmed, role: userRole }));
+    // Save user info + token to Redux
+    dispatch(loginUser({ 
+      username: trimmed, 
+      role: userRole,
+      token: token 
+    }));
 
     // Redirect
-     navigate(`/home?username=${encodeURIComponent(trimmed)}`);
+    navigate(`/home?username=${encodeURIComponent(trimmed)}`);
   };
 
   const handleSubmit = (e) => {
@@ -43,7 +55,7 @@ export default function LoginPage() {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <h1> Booking Portal</h1>
+          <h1>Booking Portal</h1>
           <p>Welcome! Enter your username to continue</p>
         </div>
 
@@ -68,7 +80,6 @@ export default function LoginPage() {
               onChange={e => setRole(e.target.value)}
             >
               <option value="user">👤 User</option>
-              {/* <option value="admin">👑 Admin</option> */}
             </select>
           </div>
 

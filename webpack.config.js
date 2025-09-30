@@ -39,7 +39,8 @@ module.exports = {
       exposes: {
         './CartSlice': './src/redux/cartSlice.js',
         './UserSlice': './src/redux/userSlice.js',
-        './ReduxStore': './src/redux/store.js'
+        './ReduxStore': './src/redux/store.js',
+        './ApiUtils': './src/utils/apiUtils.js'
       },
       shared: { 
         react: { 
